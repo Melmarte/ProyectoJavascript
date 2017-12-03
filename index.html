@@ -1,8 +1,40 @@
 <html>
 <hea>
 	<title>Hola Melvin Marte</title>
-</hea>
+	
+<script type="text/javascript">
+	var nombre ="Melvin"; 
+	var edad = 25;
+	var peso = 20.0; 
+	console.log(nombre);
+
+	function ciclo (hasta) {
+		var total=0; 
+
+		for (var i = 1; i <= hasta; i++) {
+			total=total+i;
+
+		}
+
+		console.log(total); 
+	}
+
+	ciclo(1000);
+	
+	function recorrer () {
+		var numero=document.getElementById('numero').value;
+		// ciclo(numero);
+		console.log(numero);
+
+	};
+	
+
+</script>
+
+</head>
 <body>
-	Hola Mundo
+<input id="numero">
+<button onclick="recorrer();">Correr</button>
+
 </body>
 </html>

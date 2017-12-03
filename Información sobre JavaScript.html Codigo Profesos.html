@@ -1,0 +1,68 @@
+
+
+    Información sobre JavaScript
+
+
+<html>
+<head>
+   <title>Hello, World!</title>
+
+
+   <script type="text/javascript">
+
+    var Estudiante = function(){
+      var self = this;
+      self.nombre ="";
+      self.identification = "";
+    };
+
+
+    function addRow(){
+
+      var nombre = document.getElementById("nombre").value;
+     
+      var table = document.getElementById("estudiantes");
+      var tr = document.createElement("tr");
+      var tdId = document.createElement("td");
+      var txtId = document.createTextNode(nombre);
+      
+      tdId.appendChild(txtId);
+      tr.appendChild(tdId);
+      tr.appendChild(tdNombre);
+      tr.appendChild(tdEmail);
+
+      table.appendChild(tr);
+      
+    };
+
+  
+ </script>
+</head>
+<body>
+
+<table id="estudiantes">
+
+    <tr>
+      <td>Juan</td>
+      <td>M123</td>
+    </tr>
+
+    <tr>
+        <td>Juan1</td>
+        <td>M121</td>
+      </tr>
+
+      <tr>
+          <td>Juan2</td>
+          <td>M122</td>
+        </tr>
+ 
+</table>
+
+<input id="nombre" />
+<button onclick="addRow();">Add Estudiante</button>
+
+</body>
+</html>
+index.htm
+Mostrando index.htm.
