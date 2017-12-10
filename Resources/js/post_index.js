@@ -7,9 +7,20 @@ function cargarPost() {
         url: root + '/posts',
         method: 'GET'
     }).then(function (data) {
+        
+        var localStore = window.localStorage;
+        var postFavorito = {};
+        var dbPostFavorito = localStorage.getItem('PostFavorito');
+        if (dbPostFavorito !=null){
+            postFavorito = JSON.parse(dbPostFavorito);  
+        }
+        
+
 
         //recorrer el areglo de los post
         $.each(data, function (i, p) {
+
+            var existe=p.id in postFavorito;
 
             var post =
                 '<div class="row">' +
@@ -43,27 +54,52 @@ function cargarPost() {
             $('#post').append(post);
 
         });
+        
         $(".post_boton").click(function () {
-            alert("hola " + $(this).data('post-id'));
+            var postId=$(this).data('post-id');
+            var existe=agregarPostFavorito(postId);
+            
+            $(this).removeClass(existe ? 'glyphicon-star-empty':'glyphicon-star');
+            $(this).addClass(existe ?'glyphicon-star':'glyphicon-star-empty');
+            
+            // if (existe){
+            //     $(this).removeClass('glyphicon-star-empty');
+            //     $(this).addClass('glyphicon-star');
+            // }
+            // else{
+            //     $(this).addClass('glyphicon-star-empty')
+            //     $(this).removeClass('glyphicon-star');
+            // }
         });
     });
 
 };
+
+
 function agregarPostFavorito (postId){
     var localStore = window.localStorage;
+    var postFavorito = {};
 
-    var dbPostFavorito = localStorage.getItem('PostFavorito')
+    var dbPostFavorito = localStorage.getItem('PostFavorito');
+    
     if (postFavorito !=null){
         postFavorito = JSON.parse(dbPostFavorito);
-
+        
+        
         var existe = false;
-        $.each(postFavorito, function(i,p) {
-            if 
+       if (postId in postFavorito){
+           
         }
+        else{
+            existe = true;
+            postFavorito[postId] = true
+        }
+        
+        localStorage.setItem('postFavorito', JSON.stringify(postFavorito));
+        return existe;
     }
-}
+};
 
 $(document).ready(function () {
     cargarPost();
-
 });
