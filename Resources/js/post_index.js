@@ -12,7 +12,7 @@ function cargarPost() {
         $.each(data, function (i, p) {
 
             var post =
-                '<div class="row center">' +
+                '<div class="row">' +
                 '      <div class="col-md-10">' +
                 '               <h3>' + p.title + '</h3>' +
                 '           </div>' +
@@ -49,10 +49,21 @@ function cargarPost() {
     });
 
 };
+function agregarPostFavorito (postId){
+    var localStore = window.localStorage;
 
+    var dbPostFavorito = localStorage.getItem('PostFavorito')
+    if (postFavorito !=null){
+        postFavorito = JSON.parse(dbPostFavorito);
+
+        var existe = false;
+        $.each(postFavorito, function(i,p) {
+            if 
+        }
+    }
+}
 
 $(document).ready(function () {
     cargarPost();
-
 
 });
