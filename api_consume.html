@@ -1,0 +1,105 @@
+<html>
+<hea>
+    <title>apiconsume</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="Resources/css/bootstrap.css">
+
+    <script src="Resources\js\jquery.js"></script>
+    <script src="Resources\js\estudiantes.js"></script>
+
+    <script>
+        var posts = function () {
+            var self = this
+            self.userid = ""
+            self.id="";
+            self.body = "";
+
+        };
+
+        $(document).ready(function () {
+           var root = 'https://jsonplaceholder.typicode.com';
+
+            $.ajax({
+                url: root + '/posts/',
+                method: 'GET'
+                }).then(function(data){
+                console.log(data);
+                $("#titulo").html(data.title);
+                $.each(data,function(i,post){
+                    var content='<div class="col-md-10">'+
+                    '<h1 style="color:blue;">'+post.title+'</h1></br>'+
+                   '<h5 style="color: #4c4f4d">'+post.body+'</h5></br>'+
+                    '</div></br>';
+                     $("#divista").append(content);
+                });
+            });  
+           
+            $("#buscar").click(function () {
+                var id = $("#post_id").val();
+                console.log(id);
+                var root = 'https://jsonplaceholder.typicode.com';
+
+                $.ajax({
+                url: root + '/posts/'+id,
+                method: 'GET'
+                }).then(function(data) {
+                console.log(data);
+                $("#titulo").html(data.title);
+});
+            });
+
+        });
+    </script>
+<style>
+    .center {
+        margin: auto;
+        width: 80%;
+        border: 1px solid #4c4f4d;
+        padding: 5px;
+    }
+    </style>
+
+    </head>
+
+
+
+    <body class="center" >
+        <div class="jumbotron text-center">
+            <h1>Práctica de API Consume</h1>
+            <p>Proyecto Final de Javascript</p> 
+            <div class="container">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Mi Página Web</a>
+                      </div>
+                      <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Inici</a></li>
+                        <li><a href="#">Page 1</a></li>
+                        <li><a href="#">Page 2</a></li>
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                      </ul>
+                    </div>
+                  </nav>
+              </div>
+          </div>
+
+        <form>
+
+            <div class="form-group">
+                <label for="buscar">Buscar</label>
+                <input id="post_id" placeholder="ID">
+            </div>
+            <button type="button" class="btn btn-success" id="buscar">Buscar</button>
+        </form>
+<label id="titulo"></label>
+<div id="divista"> </div>
+
+
+    </body>
+
+</html>
