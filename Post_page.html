@@ -1,5 +1,8 @@
 <html>
 
+</html>
+<html>
+
 <head>
     <title>POST - INDEX</title>
     <link rel="stylesheet" href="Resources/css/bootstrap.css">
@@ -8,7 +11,24 @@
 </head>
 
 <script>
+    function cargarPost() {
+        var root = 'http://jsonplaceholder.typicode.com';
 
+        var urlParams = new URLSearchParams(window.location.search);
+        var postid = urlParams.get('postid');
+        $.ajax({
+            url: root + '/posts/?' + postid,
+            method: 'GET'
+        }).then(function (data) {
+            console.log(data);
+            $("#titulo").html(data.title);
+            $("#body_post").html(data.body);
+        });
+
+    };  
+    $(document).ready(function () {
+    cargarPost();
+});
 </Script>
 
 <style>
@@ -42,7 +62,7 @@
         margin-right: 0px;
         margin-left: 0px;
         color: blue;
-       
+
     }
 </style>
 
@@ -50,16 +70,30 @@
     <h1>Post Index</h1>
     <h3 style="color:black">Proyecto Final de Javascript</h3>
     <h5 style="color:black">Desarrollado por: Melvin Marte</h5>
-    </div>
-    
+</div>
+
 
 <body class="jumbotron border">
     <div class="conteiner">
-        <div id="post">
-        </div>
-     <!-- <a id=redireccion href="#"> </a>   -->
+        <div class="row">
+            <div class="row">
 
-    
+            </div>
+            <div class="row">
+                <h3 id="titulo"></h3>
+            </div>
+            <div class="row">
+                <p id="body_post"></p>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+
+
+    </div>
+
+
 </body>
 
 </html>

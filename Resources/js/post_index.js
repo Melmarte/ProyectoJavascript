@@ -31,11 +31,13 @@ function cargarPost() {
 
             }
             var existe = p.id in postFavorito;
-
+            // console.log(p.id);
             var post =
                 '<div class="row">' +
                 '      <div class="col-md-10">' +
-                '               <h3>' + p.title + '</h3>' +
+                            '<a id="redireccion" href="post_page.html?postid='+p.id+'">'+  
+                '            <h3>' + p.title + '</h3>' +
+                            '</a>'+
                 '           </div>' +
                 '      <div class="col-md-2">' +
                 '           <button class="post_boton btn btn-primary glyphicon ' + (existe ? 'glyphicon-star' : 'glyphicon-star-empty') + '" data-post-id="' + p.id + '"></button>' +
