@@ -3,6 +3,20 @@
 function cargarPost() {
     var root = 'http://jsonplaceholder.typicode.com';
 
+
+    var usuarios={};        
+    
+     var postusuarios= $.ajax({
+         url: root + '/users/',
+         method: 'GET'
+     }).then(function (data) {
+         $.each(data, function (i, u) {
+             usuarios[u.id]=u;
+         })  
+     });
+
+
+postusuarios.then(function() {
     $.ajax({
         url: root + '/posts',
         method: 'GET'
@@ -47,9 +61,9 @@ function cargarPost() {
 
                 '<div class="row">' +
                 '<div class="col-md-12">' +
-                '<a class="publicador">' +
-                '<span class="glyphicon glyphicon-user" </span> Melvin Marte' +
-                '<span class="glyphicon glyphicon-envelope" </span> melmarte@hotmail</a>' +
+                '<a class="publicador" href="pos_user.html?userid='+p.id+'">' +
+                '<span class="glyphicon glyphicon-user" </span>' +usuarios[p.userId].name+
+                '<span class="glyphicon glyphicon-envelope" </span> '+usuarios[p.userId].email+'</a>' +
                 '</div>' +
                 '</div>' +
 
@@ -64,7 +78,7 @@ function cargarPost() {
                 '</div>';
 
             $('#post').append(post);
-
+        })
         });
 
         $(".post_boton").click(function () {

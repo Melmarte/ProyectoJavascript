@@ -4,30 +4,75 @@
 <html>
 
 <head>
-    <title>POST - INDEX</title>
+    <title>POST - page</title>
     <link rel="stylesheet" href="Resources/css/bootstrap.css">
     <script src="Resources\js\jquery.js"></script>
     <script src="Resources\js\post_index.js"></script>
 </head>
 
 <script>
-    function cargarPost() {
+    $(document).ready(function () {
         var root = 'http://jsonplaceholder.typicode.com';
 
         var urlParams = new URLSearchParams(window.location.search);
         var postid = urlParams.get('postid');
-        $.ajax({
-            url: root + '/posts/?' + postid,
+        var usuarios={};        
+       
+        var postusuarios= $.ajax({
+            url: root + '/users/',
             method: 'GET'
         }).then(function (data) {
-            console.log(data);
-            $("#titulo").html(data.title);
-            $("#body_post").html(data.body);
+            $.each(data, function (i, u) {
+                usuarios[u.id]=u;
+            })  
         });
 
-    };  
-    $(document).ready(function () {
-    cargarPost();
+        postusuarios.then(function() {
+        var postPrincipal= $.ajax({
+            url: root + '/posts/' + postid,
+            method: 'GET'
+        }).then(function (data) {
+  
+            $("#titulo").html(data.title);
+            $("#body_post").html(data.body);
+            $("#usuario").html(usuarios[data.userId].name);
+        })
+    });
+        
+
+       $.ajax({
+            url: root + '/comments/?postId=' + postid,
+            method: 'GET'
+        }).then(function (data) {
+            $.each(data, function (i, p) {
+            var post =
+            '<div class="row">' +
+            '      <div class="col-md-10">' +
+                        '<a id="redireccion" href="#">'+  
+            '            <h3>' + p.name + '</h3>' +
+                        '</a>'+
+            '           </div>' +
+            '      <div class="col-md-2">' +
+            '       </div>' +
+            '     </div>' +
+            '  </div>' +
+            '<div class="row">' +
+            '<div class="col md 12">' +
+            '<div>' +
+            '<p>' +
+            p.body +
+            '</p>' +
+            '</div>' +
+            '</div>' +
+            '</div>'+
+            '<div class="row">' +
+            '<div class="col md 12">' +
+                    '<span class="glyphicon glyphicon-envelope" >'+p.email+'</span>' +
+                    '</div>' +
+            '</div>';
+            $('#comentarios').append(post);
+        });
+    });
 });
 </Script>
 
@@ -67,7 +112,7 @@
 </style>
 
 <div class="jumbotron header">
-    <h1>Post Index</h1>
+    <h1>Post page</h1>
     <h3 style="color:black">Proyecto Final de Javascript</h3>
     <h5 style="color:black">Desarrollado por: Melvin Marte</h5>
 </div>
@@ -86,10 +131,12 @@
                 <p id="body_post"></p>
             </div>
             <div class="row">
-
+                    <h3 id="usuario"></h3>
             </div>
         </div>
+    <div id="comentarios">
 
+    </div>
 
     </div>
 

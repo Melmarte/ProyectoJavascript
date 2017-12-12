@@ -1,0 +1,105 @@
+<html>
+
+</html>
+<html>
+
+<head>
+    <title>POST - USER</title>
+    <link rel="stylesheet" href="Resources/css/bootstrap.css">
+    <script src="Resources\js\jquery.js"></script>
+    <script src="Resources\js\post_index.js"></script>
+</head>
+
+<script>
+    $(document).ready(function () {
+        var root = 'http://jsonplaceholder.typicode.com';
+
+        var urlParams = new URLSearchParams(window.location.search);
+        var userId = urlParams.get('userid');
+        var usuarios = {};
+
+        var postusuarios = $.ajax({
+            url: root + '/users/'+userId,
+            method: 'GET'
+        }).then(function (data) {
+           
+        });
+        
+       
+    });
+</Script>
+
+<style>
+    .boxcolor {
+        background-color: rgb(138, 190, 187)
+    }
+
+    .publicador {
+        color: rgb(97, 181, 185)
+    }
+
+    .jumbotron {
+        .heght: 50px;
+        widows: 500px;
+        ;
+        padding: 50px;
+        margin: 50px;
+    }
+
+    .border {
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    .header {
+        background-image: url("fondo.jpg");
+        background-position: right top;
+        margin: 5px;
+        margin-top: 1px;
+        margin-bottom: 20px;
+        margin-right: 0px;
+        margin-left: 0px;
+        color: blue;
+        
+    }
+    .usuariobox {
+        margin: 20px;
+        margin-top: 5px;
+        margin-bottom: 200px;
+        margin-right: 200px;
+        margin-left: 200px;
+        color: rgb(92, 92, 93);
+    }
+
+</style>
+
+<div class="jumbotron header">
+    <h1>Post User</h1>
+    <h3 style="color:black">Proyecto Final de Javascript</h3>
+   
+</div>
+
+
+<body class="jumbotron border">
+    <div class="conteiner">
+        <div class="row">
+            <div class="row jumbotron border usuariobox boxcolor">
+                <h3 id="iduser">Nombre</h3>
+                <h3 id="name">Nombre</h3>   
+                <h3 id="username">Nombre</h3>   
+                <h3 id="email">Nombre</h3>   
+                <h3 id="address">Nombre</h3>   
+                    <h3 id="stree">Nombre</h3>
+                    <h3 id="suite">Nombre</h3>
+                    <h3 id="city">Nombre</h3>        
+                    <h3 id="zipcode">Nombre</h3>
+                    <h3 id="geo">Nombre</h3>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
