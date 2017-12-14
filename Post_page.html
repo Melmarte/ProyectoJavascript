@@ -82,44 +82,63 @@
     }
 
     .publicador {
-        color: rgb(22, 140, 148)
+        color: rgb(253, 0, 0)
     }
 
     .jumbotron {
-        .heght: 10px;
-        widows: 1200px;
-        ;
-        padding: 40px;
-        margin: 40px;
+        widows: 900px;
+        padding: auto;
+        margin: 10px;
+        width: 900;
     }
 
     .border {
         border-style: solid;
         border-width: 1px;
+        margin: auto;
+        padding: 20;
+        margin-top: 1px;
+    }
+    .borderbody {
+        
+        border-width: 1px;
+        margin: auto;
+        padding: 50;
+        margin-top: -55px;
+    }
+
+    .dody-post {
+        padding: 30;
+        margin-top: 5px;
     }
 
     .header {
-        background-image: url("fondo.jpg");
+        /* background-image: url("fondo.jpg"); */
         background-position: right top;
-        margin: 20px;
-        margin-top: 10px;
-        margin-bottom: 20px;
+        margin: 50;
+        margin-top: 0px;
+        margin-bottom: 0px;
         margin-right: 0px;
         margin-left: 0px;
         color: blue;
 
     }
+    .font {
+        font-size: 110%;
+        color: rgb(65, 65, 75);
+    }
 </style>
 
-<div class="jumbotron header">
-    <h1>Post page</h1>
-    <h3 style="color:black">Proyecto Final de Javascript</h3>
-    <h5 style="color:black">Desarrollado por: Melvin Marte</h5>
+<div class="header">
+    <center><h1>Post Page</h1></center>
+    <center><h3 style="color:black">Proyecto Final de Javascript</h3></center>
+    <center><h5 style="color:black">Desarrollado por: Melvin Marte</h5></center>
 </div>
+<hr>
 
 
 <body class="jumbotron border">
-    <div class="conteiner">
+    <div class="conteiner borderbody">  
         <div class="row">
             <div class="row">
 
@@ -131,10 +150,10 @@
                 <p id="body_post"></p>
             </div>
             <div class="row">
-                    <h3 id="usuario"></h3>
+                    <h5 id="usuario"></h5>
             </div>
         </div>
-    <div id="comentarios">
+    <div class="font" id="comentarios">
 
     </div>
 

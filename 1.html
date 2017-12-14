@@ -1,0 +1,93 @@
+<html>
+
+<head>
+    <title>POST - INDEX</title>
+    <link rel="stylesheet" href="Resources/css/bootstrap.css">
+    <script src="Resources\js\jquery.js"></script>
+    <script src="Resources\js\post_index.js"></script>
+</head>
+
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("#div1").fadeToggle();
+            $("#div2").fadeToggle("slow");
+            $("#div3").fadeToggle(3000);
+        });
+    });
+
+    $(document).ready(function () {
+        $("#flip").click(function () {
+            $("#panel").slideToggle("slow");
+        });
+    });
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</Script>
+
+<style>
+    .rojo {
+        background-color: rgb(180, 28, 28)
+    }
+
+    .publicador {
+        color: rgb(22, 140, 148)
+    }
+
+    .jumbotron {
+        widows: 800px;
+        padding: 40px;
+        margin: 40px;
+    }
+
+    .border {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 0px;
+    }
+
+    .header {
+        margin-top: 0px;
+        margin-bottom: 20px;
+        margin-right: 0px;
+        margin-left: 0px;
+        color: blue;
+        width: 500px
+    }
+
+    #panel,
+    #flip {
+        padding: 5px;
+        text-align: center;
+        /* background-color: #e5eecc;
+        border: solid 1px #c3c3c3; */
+    }
+
+    #panel {
+        padding: 50px;
+        display: none;
+    }
+</style>
+
+<body class="border">
+
+
+    <div >
+        <div class="header" id="flip">
+            <button class="btn btn-primary btn-block">Click para ver</button>
+        </div>
+        <div id="panel">
+            <div>
+                <div class="thumbnail">
+                    <a href="amor.jpg" target="_blank">
+                        <img src="amor.jpg" alt="Lights" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

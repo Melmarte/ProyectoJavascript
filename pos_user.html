@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="Resources/css/bootstrap.css">
     <script src="Resources\js\jquery.js"></script>
     <script src="Resources\js\post_index.js"></script>
+    <script src="Resources\js\user_page.js"></script>
 </head>
 
 <script>
@@ -19,17 +20,17 @@
         var usuarios = {};
 
         var postusuarios = $.ajax({
-            url: root + '/users/'+userId,
+            url: root + '/users/' + userId,
             method: 'GET'
         }).then(function (data) {
-           
+
         });
-        
-       
+
+
     });
 </Script>
 
-<style>
+<!-- <style>
     .boxcolor {
         background-color: rgb(138, 190, 187)
     }
@@ -77,29 +78,114 @@
     <h1>Post User</h1>
     <h3 style="color:black">Proyecto Final de Javascript</h3>
    
-</div>
+</div> -->
 
+<style>
+    .boxcolor {
+        padding: 100;
+        margin-top: -100;
+    }
+
+    .rojo {
+        background-color: rgb(180, 28, 28)
+    }
+
+    .publicador {
+        color: rgb(253, 0, 0)
+    }
+
+    .jumbotron {
+        widows: 900px;
+        padding: 10;
+        margin: 10px;
+        width: 900;
+    }
+
+    .border {
+        border-style: solid;
+        border-width: 1px;
+        margin: auto;
+        padding: 20;
+        margin-top: 1px;
+    }
+
+    .borderbody {
+
+        border-width: 1px;
+        margin: auto;
+        padding: 50;
+        margin-top: -55px;
+    }
+
+    .dody-post {
+        padding: 30;
+        margin-top: 5px;
+    }
+
+    .header {
+        /* background-image: url("fondo.jpg"); */
+        background-position: right top;
+        margin: 50;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+        color: blue;
+
+    }
+
+    .font {
+        font-size: 110%;
+        color: rgb(65, 65, 75);
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<div class="header">
+    <center>
+        <h1>Post User</h1>
+    </center>
+    <center>
+        <h3 style="color:black">Proyecto Final de Javascript</h3>
+    </center>
+    <center>
+        <h5 style="color:black">Desarrollado por: Melvin Marte</h5>
+    </center>
+</div>
+<hr>
 
 <body class="jumbotron border">
     <div class="conteiner">
         <div class="row">
-            <div class="row jumbotron border usuariobox boxcolor">
-                <h3 id="iduser">Nombre</h3>
-                <h3 id="name">Nombre</h3>   
-                <h3 id="username">Nombre</h3>   
-                <h3 id="email">Nombre</h3>   
-                <h3 id="address">Nombre</h3>   
-                    <h3 id="stree">Nombre</h3>
-                    <h3 id="suite">Nombre</h3>
-                    <h3 id="city">Nombre</h3>        
-                    <h3 id="zipcode">Nombre</h3>
-                    <h3 id="geo">Nombre</h3>
+            <div class="row  usuariobox boxcolor">
+                <table id="tabla">
+               
+                </table>
+                <div id="posts">
+
+                </div>
             </div>
 
         </div>
     </div>
 
-
+    
 </body>
 
 </html>
